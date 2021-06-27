@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Remote Code Writing
+		</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body>
+		<h2>Title:</h2>
+		
+		<input type="text" id="title"></niput>
+	
+		<br/>
+		
+		<h2>Code:</h2>
+		
+		<textarea type="text/html" id="code" cols=50 rows=50>
+		
+		</textarea>
+		
+		<br/>
+		
+		<button onclick="run()">
+			Run
+		</button>
+		
+		<br/>
+		
+		<button onclick="save()">
+			Save
+		</button>
+		
+		<br/>
+		
+		
+		<script>
+			//run
+			function run(){
+				//open new window 
+				var newWin = window.open();
+				var newScript = document.createElement("script");
+				newScript.innerHTML = document.getElementById("code").value;
+				
+				newWin.document.body.appendChild(newScript);
+			};
+			
+			//save 
+			function save(){
+				//local storage
+				localStorage[document.getElementById("title").value] = document.getElementById("code").value;
+			}
+		</script>
+	</body>
+</html>
